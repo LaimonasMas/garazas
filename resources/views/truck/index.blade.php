@@ -12,7 +12,8 @@
                     <li class="list-group-item list-line">
                         <div>
                             <h5>Maker: {{$truck->maker}}</h5>
-                            <p>Plate: {{$truck->plate}}</p>
+                            <h6>Plate: {{$truck->plate}}</h6>
+                            <p>Mechanic notices: {{$truck->mechanic_notices}}</p>
                             Mechanic: {{$truck->truckMechanic->name}} {{$truck->truckMechanic->surname}}
                         </div>
                         <div class="list-line__buttons">

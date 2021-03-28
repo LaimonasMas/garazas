@@ -26,7 +26,7 @@
                         </div>
                         <div class="form-group">
                             <label>Mechanic notices: </label>
-                            <textarea class="form-control" name="mechanic_notices"></textarea>
+                            <textarea class="form-control" name="mechanic_notices" id="summernote"></textarea>
                             <small class="form-text text-muted">Please enter notes here</small>
                         </div>
                         <div class="form-group">
@@ -44,4 +44,9 @@
         </div>
     </div>
 </div>
+<script>
+$(document).ready(function() {
+   $('#summernote').summernote();
+ });
+</script>
 @endsection
