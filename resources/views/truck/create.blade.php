@@ -9,17 +9,35 @@
 
                 <div class="card-body">
                     <form method="POST" action="{{route('truck.store')}}">
-                        Maker: <input type="text" name="truck_maker">
-                        Plate: <input type="text" name="truck_plate">
-                        Make year: <input type="text" name="make_year">
-                        Mechanic notices: <textarea name="mechanic_notices"></textarea>
-                        <select name="mechanic_id">
-                            @foreach ($mechanics as $mechanic)
-                            <option value="{{$mechanic->id}}">{{$mechanic->name}} {{$mechanic->surname}}</option>
-                            @endforeach
-                        </select>
+                        <div class="form-group">
+                            <label>Maker: </label>
+                            <input type="text" class="form-control" name="truck_maker">
+                            <small class="form-text text-muted">Please enter Maker here</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Plate: </label>
+                            <input type="text" class="form-control" name="truck_plate">
+                            <small class="form-text text-muted">Please enter Plate here</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Make year: </label>
+                            <input type="text" class="form-control" name="make_year">
+                            <small class="form-text text-muted">Please enter Make Year here</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Mechanic notices: </label>
+                            <textarea class="form-control" name="mechanic_notices"></textarea>
+                            <small class="form-text text-muted">Please enter notes here</small>
+                        </div>
+                        <div class="form-group">
+                            <select name="mechanic_id">
+                                @foreach ($mechanics as $mechanic)
+                                <option class="form-control" value="{{$mechanic->id}}">{{$mechanic->name}} {{$mechanic->surname}}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         @csrf
-                        <button type="submit">ADD</button>
+                        <button class="btn btn-outline-success btn-sm" type="submit">ADD</button>
                     </form>
                 </div>
             </div>

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Create Truck</div>
+                <div class="card-header">Edit Truck</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{route('truck.update',[$truck])}}">
@@ -30,15 +30,15 @@
                             <textarea class="form-control" name="mechanic_notices">{{$truck->mechanic_notices}}</textarea>
                             <small class="form-text text-muted">You can edit notes here</small>
                         </div>
-                                                <div class="form-group">
-                        <select name="mechanic_id">
-                            @foreach ($mechanics as $mechanic)
-                            <option class="form-control" value="{{$mechanic->id}}" @if($mechanic->id == $truck->mechanic_id) selected @endif>{{$mechanic->name}} {{$mechanic->surname}}</option>
-                            @endforeach
-                        </select>
+                        <div class="form-group">
+                            <select name="mechanic_id">
+                                @foreach ($mechanics as $mechanic)
+                                <option class="form-control" value="{{$mechanic->id}}" @if($mechanic->id == $truck->mechanic_id) selected @endif>{{$mechanic->name}} {{$mechanic->surname}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         @csrf
-                        <button type="submit" class="btn btn-outline-secondary btn-sm" >EDIT</button>
+                        <button type="submit" class="btn btn-outline-secondary btn-sm">EDIT</button>
                     </form>
                 </div>
             </div>
