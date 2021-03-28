@@ -11,23 +11,23 @@
                     <form method="POST" action="{{route('truck.update',[$truck])}}">
                         <div class="form-group">
                             <label>Maker: </label>
-                            <input type="text" class="form-control" name="truck_maker" value="{{$truck->maker}}">
+                            <input type="text" class="form-control" name="truck_maker" value="{{old('truck_maker', $truck->maker)}}">
                             <small class="form-text text-muted">You can edit Maker here</small>
                         </div>
                         <div class="form-group">
                             <label>Plate: </label>
-                            <input type="text" class="form-control" name="truck_plate" value="{{$truck->plate}}">
+                            <input type="text" class="form-control" name="truck_plate" value="{{old('truck_plate', $truck->plate)}}">
                             <small class="form-text text-muted">You can edit Plate here</small>
                         </div>
 
                         <div class="form-group">
                             <label>Make year: </label>
-                            <input type="text" class="form-control" name="make_year" value="{{$truck->make_year}}">
+                            <input type="text" class="form-control" name="make_year" value="{{old('make_year', $truck->make_year)}}">
                             <small class="form-text text-muted">You can edit Make Year here</small>
                         </div>
                         <div class="form-group">
                             <label>Mechanic notices: </label>
-                            <textarea class="form-control" name="mechanic_notices" id="summernote">{{$truck->mechanic_notices}}</textarea>
+                            <textarea class="form-control" name="mechanic_notices" id="summernote">{{old('mechanic_notices', $truck->mechanic_notices)}}</textarea>
                             <small class="form-text text-muted">You can edit notes here</small>
                         </div>
                         <div class="form-group">

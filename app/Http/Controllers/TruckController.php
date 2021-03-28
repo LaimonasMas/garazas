@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Truck;
 use App\Models\Mechanic;
 use Illuminate\Http\Request;
+use Validator;
 
 
 class TruckController extends Controller
@@ -39,6 +40,33 @@ class TruckController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'truck_maker' => ['required', 'min:1', 'max:64'],
+                'truck_plate' => ['required', 'min:1', 'max:6'],
+                'make_year' => ['required', 'integer', 'digits:4'],
+                'mechanic_notices' => ['required', 'min:2', 'max:64'],
+            ],
+
+            [
+                'truck_maker.required' => 'The truck maker must be entered.',
+                'truck_plate.required' => 'The truck plate must be entered.',
+                'make_year.required' => 'The truck make year must be entered.',
+                'mechanic_notices.required' => 'The mechanic notices must be entered.',
+                'truck_maker.min' => 'The truck_maker must be at least 1 characters.',
+                'truck_plate.min' => 'The truck_plate must be at least 1 characters.',
+                'make_year.digits' => 'The make_year must be 4 digits.',
+                'make_year.integer' => 'The make_year must be an integer.',
+                'mechanic_notices.min' => 'The mechanic notices must be at least 2 characters.'
+            ]
+        );
+
+        if ($validator->fails()) {
+            $request->flash();
+            return redirect()->back()->withErrors($validator);
+        }
+
         $truck = new Truck;
         $truck->maker = $request->truck_maker;
         $truck->plate = $request->truck_plate;
@@ -81,6 +109,33 @@ class TruckController extends Controller
      */
     public function update(Request $request, Truck $truck)
     {
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'truck_maker' => ['required', 'min:1', 'max:64'],
+                'truck_plate' => ['required', 'min:1', 'max:6'],
+                'make_year' => ['required', 'integer', 'digits:4'],
+                'mechanic_notices' => ['required', 'min:2', 'max:64'],
+            ],
+
+            [
+                'truck_maker.required' => 'The truck maker must be entered.',
+                'truck_plate.required' => 'The truck plate must be entered.',
+                'make_year.required' => 'The truck make year must be entered.',
+                'mechanic_notices.required' => 'The mechanic notices must be entered.',
+                'truck_maker.min' => 'The truck_maker must be at least 1 characters.',
+                'truck_plate.min' => 'The truck_plate must be at least 1 characters.',
+                'make_year.digits' => 'The make_year must be 4 digits.',
+                'make_year.integer' => 'The make_year must be an integer.',
+                'mechanic_notices.min' => 'The mechanic notices must be at least 2 characters.'
+            ]
+        );
+
+        if ($validator->fails()) {
+            $request->flash();
+            return redirect()->back()->withErrors($validator);
+        }
+
         $truck->maker = $request->truck_maker;
         $truck->plate = $request->truck_plate;
         $truck->make_year = $request->make_year;

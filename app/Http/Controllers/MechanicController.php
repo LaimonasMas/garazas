@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Mechanic;
 use Illuminate\Http\Request;
+use Validator;
 
 class MechanicController extends Controller
 {
@@ -36,6 +37,27 @@ class MechanicController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'mechanic_name' => ['required', 'min:3', 'max:64'],
+                'mechanic_surname' => ['required', 'min:3', 'max:64'],
+            ],
+
+            [
+                'mechanic_name.required' => 'The mechanic name must be entered.',
+                'mechanic_surname.min' => 'The mechanic surname must be at least 3 characters.',
+                'mechanic_name.min' => 'The mechanic name must be at least 3 characters.',
+                'mechanic_surname.min' => 'The mechanic surname must be at least 3 characters.'
+
+            ]
+        );
+
+        if ($validator->fails()) {
+            $request->flash();
+            return redirect()->back()->withErrors($validator);
+        }
+
         $mechanic = new Mechanic;
         $mechanic->name = $request->mechanic_name;
         $mechanic->surname = $request->mechanic_surname;
@@ -74,11 +96,30 @@ class MechanicController extends Controller
      */
     public function update(Request $request, Mechanic $mechanic)
     {
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'mechanic_name' => ['required', 'min:3', 'max:64'],
+                'mechanic_surname' => ['required', 'min:3', 'max:64'],
+            ],
+
+            [
+                'mechanic_name.required' => 'The mechanic name must be entered.',
+                'mechanic_surname.min' => 'The mechanic surname must be at least 3 characters.',
+                'mechanic_name.min' => 'The mechanic name must be at least 3 characters.',
+                'mechanic_surname.min' => 'The mechanic surname must be at least 3 characters.'
+            ]
+        );
+
+        if ($validator->fails()) {
+            $request->flash();
+            return redirect()->back()->withErrors($validator);
+        }
+
         $mechanic->name = $request->mechanic_name;
         $mechanic->surname = $request->mechanic_surname;
         $mechanic->save();
         return redirect()->route('mechanic.index')->with('success_message', 'Updated successfully.');
-
     }
 
     /**
@@ -89,12 +130,11 @@ class MechanicController extends Controller
      */
     public function destroy(Mechanic $mechanic)
     {
-        if($mechanic->mechanicTrucks->count()){
+        if ($mechanic->mechanicTrucks->count()) {
             return redirect()->route('mechanic.index')->with('info_message', 'Cannot delete, mechanic still has cars.');
         }
 
         $mechanic->delete();
         return redirect()->route('mechanic.index')->with('success_message', 'Deleted successfully.');
-
     }
 }
