@@ -6,7 +6,7 @@
 ![Eco Status](https://img.shields.io/badge/ECO-Friendly-green.svg)
 
 
-## Library application
+## Car Service application
 
 This is a simple Car Service Application which was built for studying purposes only. 
 
