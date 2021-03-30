@@ -5,7 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Mechanic list</div>
+                <div class="card-header">
+                    <h2>Mechanic list</h2>
+                    <a href="{{route('mechanic.index', ['sort' => 'surname'])}}">Sort by surname</a>
+                    <a href="{{route('mechanic.index', ['sort' => 'name'])}}">Sort by name</a>
+                    <a href="{{route('mechanic.index')}}">Default</a>
+                </div>
                 <div class="card-body">
 
                     @foreach ($mechanics as $mechanic)

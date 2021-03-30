@@ -13,9 +13,15 @@ class MechanicController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $mechanics = Mechanic::all();
+        if ('name' == $request->sort) {
+            $mechanics = Mechanic::orderBy('name')->get();
+        } else if ('surname' == $request->sort) {
+            $mechanics = Mechanic::orderBy('surname')->get();
+        } else {
+            $mechanics = Mechanic::all();
+        }
         return view('mechanic.index', ['mechanics' => $mechanics]);
     }
 
