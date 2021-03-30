@@ -21,7 +21,7 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <label class="form-check-label">Sort by title:</label>
+                            <label class="form-check-label">Sort by Maker:</label>
                             <label class="form-check-label" for="sortASC">ASC</label>
                             <div class="form-group make-inline column">
                                 <input type="radio" class="form-check-input" name="sort" value="asc" id="sortASC" @if($sortBy=='asc' ) checked @endif>
