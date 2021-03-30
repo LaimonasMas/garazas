@@ -7,9 +7,9 @@
             <div class="card">
                 <div class="card-header">
                     <h2>Mechanic list</h2>
-                    <a href="{{route('mechanic.index', ['sort' => 'surname'])}}">Sort by surname</a>
-                    <a href="{{route('mechanic.index', ['sort' => 'name'])}}">Sort by name</a>
-                    <a href="{{route('mechanic.index')}}">Default</a>
+                    <a class="a-padding-right" href="{{route('mechanic.index', ['sort' => 'surname'])}}">Sort by surname</a>
+                    <a class="a-padding-right" href="{{route('mechanic.index', ['sort' => 'name'])}}">Sort by name</a>
+                    <a class="a-padding-right" href="{{route('mechanic.index')}}">Default</a>
                 </div>
                 <div class="card-body">
 

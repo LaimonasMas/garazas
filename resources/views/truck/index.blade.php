@@ -49,6 +49,7 @@
                         </div>
                         <div class="list-line__buttons">
                             <div class="form-group">
+                                <a href="{{route('truck.show',[$truck])}}" class="btn btn-outline-success btn-sm">SHOW</a>
                                 <a class="btn btn-outline-secondary btn-sm" href="{{route('truck.edit',[$truck])}}">EDIT</a>
                             </div>
                             <form method="POST" action="{{route('truck.destroy', [$truck])}}">
