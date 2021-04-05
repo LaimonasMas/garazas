@@ -20,7 +20,7 @@
                             <small class="form-text text-muted">You can enter Surname here</small>
                         </div>
                         @csrf
-                        <button type="submit" class="btn btn-outline-secondary btn-sm">ADD</button>
+                        <button type="submit" class="btn btn-outline-success btn-sm" >ADD</button>
                     </form>
 
                 </div>

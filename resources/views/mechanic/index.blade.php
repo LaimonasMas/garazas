@@ -27,7 +27,8 @@
                                 <button class="btn btn-outline-danger btn-sm" type="submit">DELETE</button>
                             </form>
                         </div>
-                        @endforeach
+                    </li>
+                    @endforeach
 
                 </div>
             </div>
