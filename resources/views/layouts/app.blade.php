@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Garage</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
@@ -23,7 +23,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body style='background-image: url("https://pbs.twimg.com/media/EUh0hKBXgAASflq.jpg:large"); background-repeat: no-repeat; background-attachment: fixed'>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
