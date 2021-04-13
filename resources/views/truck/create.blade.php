@@ -26,7 +26,7 @@
                         </div>
                         <div class="form-group">
                             <label>Mechanic notices: </label>
-                            <textarea class="form-control" name="mechanic_notices" id="summernote" value="{{old('mechanic_notices')}}"></textarea>
+                            <textarea class="form-control" name="mechanic_notices" id="summernote">{{old('mechanic_notices')}}</textarea>
                             <small class="form-text text-muted">Please enter notes here</small>
                         </div>
                         <div class="form-group">
