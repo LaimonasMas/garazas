@@ -23,7 +23,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body style='background-image: url("https://pbs.twimg.com/media/EUh0hKBXgAASflq.jpg:large"); background-repeat: no-repeat; background-attachment: fixed'>
+<body style='background-image: url("https://pbs.twimg.com/media/EUh0hKBXgAASflq.jpg:large"); background-repeat: no-repeat; background-attachment: fixed; background-size:cover'>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
